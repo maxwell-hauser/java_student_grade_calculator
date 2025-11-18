@@ -1,0 +1,27 @@
+# Java build artifacts
+*.class
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+# IDE and editor folders
+.vscode/
+.idea/
+*.iml
+
+# Build directories
+bin/
+build/
+out/
+target/
+
+# Eclipse/Gradle/Maven project files (not used here)
+.project
+.classpath
+.settings/
+.gradle/
+.mvn/
