@@ -1,47 +1,70 @@
 # Student Grade Calculator
 
-A simple GUI-based Java program that collects student grades for projects, homework, exams, and attendance, then computes a weighted final course grade. The app uses Swing dialogs (`JOptionPane`) so it runs as a standalone desktop prompt without needing additional libraries.
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=flat&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.9+-C71A36?style=flat&logo=apache-maven)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat)
+![Status](https://img.shields.io/badge/Status-Active-success?style=flat)
 
-## Features
-- Intuitive GUI prompts for each grade component
-- Input validation with helpful messages and retry flow
-- Clear, aligned grade report with per-section breakdown
-- Configurable weights and point totals via constants in code
-- No external dependencies — compiles and runs with a standard JDK
+A GUI-based Java application that collects student grades for projects, homework, exams, and attendance, then computes a weighted final course grade using Swing dialogs.
 
-## Grading Model
-- Projects + Homework: 40% total
-- Exams: 50% total
-- Attendance: 10% total
+## ✨ Features
 
-Point assumptions (adjustable in code):
-- Projects: `P1..P7` with max points `{50, 100, 100, 200, 200, 200, 200}`
-- Homework: `HW1..HW2` with max points `{50, 50}`
-- Attendance: max `28` meetings
+- **Intuitive GUI**: User-friendly Swing dialog prompts
+- **Input Validation**: Comprehensive validation with helpful error messages
+- **Detailed Reports**: Clear, aligned grade breakdown by section
+- **Configurable Weights**: Easy-to-adjust grading criteria
+- **No External Dependencies**: Runs with standard JDK
+- **Professional Output**: Formatted grade report with section percentages
 
-Final grade is computed as a weighted combination of section percentages:
+## 📊 Grading Model
+
+### Weight Distribution
+- **Projects + Homework**: 40%
+- **Exams**: 50%
+- **Attendance**: 10%
+
+### Default Point Values
+- **Projects (P1-P7)**: 50, 100, 100, 200, 200, 200, 200 points
+- **Homework (HW1-HW2)**: 50, 50 points
+- **Attendance**: Maximum 28 meetings
+- **Total Projects + Homework**: 1,150 points
+
+### Final Grade Formula
 
 ```
-final = (Projects+Homework %)*0.40 + (Exams %)*0.50 + (Attendance %)*0.10
+Final Grade = (Projects+Homework %) × 0.40 + (Exams %) × 0.50 + (Attendance %) × 0.10
 ```
 
-Key constants in `StudentGradeCalculator.java`:
+### Configurable Constants
+
+Easily modify grading criteria in `StudentGradeCalculator.java`:
 - `PROJECT_HOMEWORK_WEIGHT = 0.4`
 - `EXAM_WEIGHT = 0.5`
 - `ATTENDANCE_WEIGHT = 0.1`
-- `TOTAL_PROJECT_HOMEWORK_POINTS = 1150.0` (sum of all project + homework max points)
+- `TOTAL_PROJECT_HOMEWORK_POINTS = 1150.0`
 - `MAX_ATTENDANCE = 28`
 
-To change the max points per project, edit the `projectMaxPoints` array in `displayResults(...)` and keep `TOTAL_PROJECT_HOMEWORK_POINTS` in sync.
+## 📋 Requirements
 
-## Requirements
-- JDK 8 or later (Java 8+)
-- Windows, macOS, or Linux
+- **JDK 21** (Temurin recommended)
+- **Maven 3.9+**
+- Cross-platform: Windows, macOS, Linux
 
-## Quick Start (Windows PowerShell)
+## 🚀 Quick Start
+
+### Using Maven (Recommended)
+
 ```powershell
-cd "g:\My Drive\GITHUB\java\student_grade_calculator_gh"
+# Build the project
+mvn clean package
 
+# Run the application
+java -jar target/student-grade-calculator-1.0.1.jar
+```
+
+### Without Maven
+
+```powershell
 # Compile
 javac StudentGradeCalculator.java
 
@@ -49,14 +72,43 @@ javac StudentGradeCalculator.java
 java StudentGradeCalculator
 ```
 
-If you prefer a runnable JAR:
-```powershell
-# Create JAR with a main class
-jar --create --file student-grade-calculator.jar --main-class StudentGradeCalculator StudentGradeCalculator.class
+## 📖 Usage
 
-# Run the JAR
-java -jar student-grade-calculator.jar
+1. Launch the application
+2. Enter grades for each project (P1-P7)
+3. Enter homework scores (HW1-HW2)
+4. Input exam scores
+5. Record attendance (number of meetings attended)
+6. View comprehensive grade report with:
+   - Individual section scores
+   - Percentage breakdowns
+   - Weighted final grade
+
+## 🏗️ Building from Source
+
+```powershell
+# Clone the repository
+git clone https://github.com/maxwell-hauser/java_student_grade_calculator.git
+cd java_student_grade_calculator
+
+# Build with Maven
+mvn clean install
+
+# Run tests
+mvn test
 ```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Maxwell Hauser**
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/maxwell-hauser/java_student_grade_calculator/issues).
 
 ## Usage Flow
 1. Enter first and last name.
